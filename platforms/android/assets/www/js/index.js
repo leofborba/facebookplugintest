@@ -33,15 +33,6 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-		var fbLoginSuccess = function (userData) {
-			alert("UserInfo: " + JSON.stringify(userData));
-		}
-
-		facebookConnectPlugin.login(["public_profile"],
-			fbLoginSuccess,
-			function (error) { alert("" + error) }
-		);
-		
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event

@@ -35,12 +35,25 @@
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
+				
+				<button value="FB" onclick="fb()">FB</button>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
+			
+			function fb(){
+				var fbLoginSuccess = function (userData) {
+					alert("UserInfo: " + JSON.stringify(userData));
+				}
+
+				facebookConnectPlugin.login(["public_profile"],
+					fbLoginSuccess,
+					function (error) { alert("" + error) }
+				);
+			}
         </script>
     </body>
 </html>
